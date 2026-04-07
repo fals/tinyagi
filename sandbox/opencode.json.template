@@ -1,0 +1,78 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "*": "allow",
+    "bash(rm *)": "ask",
+    "bash(rmdir *)": "ask",
+    "bash(mv *)": "ask",
+    "bash(truncate *)": "ask",
+    "bash(shred *)": "ask",
+    "bash(unlink *)": "ask",
+    "bash(git push --force*)": "ask",
+    "bash(git push -f *)": "ask",
+    "bash(git reset --hard*)": "ask",
+    "bash(git clean -fd*)": "ask",
+    "bash(git checkout --*)": "ask",
+    "bash(git stash drop*)": "ask",
+    "bash(kubectl delete*)": "ask",
+    "bash(kubectl remove*)": "ask",
+    "bash(kubectl scale*)": "ask",
+    "bash(kubectl drain*)": "ask",
+    "bash(docker rm *)": "ask",
+    "bash(docker rmi *)": "ask",
+    "bash(docker volume rm*)": "ask",
+    "bash(docker network rm*)": "ask",
+    "bash(docker system prune*)": "ask",
+    "bash(docker container prune*)": "ask",
+    "bash(docker image prune*)": "ask",
+    "bash(docker volume prune*)": "ask",
+    "bash(docker network prune*)": "ask",
+    "bash(kill *)": "ask",
+    "bash(pkill *)": "ask",
+    "bash(killall *)": "ask",
+    "bash(shutdown*)": "ask",
+    "bash(reboot*)": "ask",
+    "bash(halt*)": "ask",
+    "bash(poweroff*)": "ask"
+  },
+  "model": "ai-enabler/minimax-m2.5",
+  "mode": {
+    "plan": {
+      "model": "ai-enabler/glm-5-fp8"
+    },
+    "build": {
+      "model": "ai-enabler/minimax-m2.5"
+    }
+  },
+  "provider": {
+    "ai-enabler": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "AI Enabler by Cast AI",
+      "options": {
+        "baseURL": "https://llm.cast.ai/openai/v1",
+        "litellmProxy": true,
+        "apiKey": "YOUR_API_KEY_HERE"
+      },
+      "models": {
+        "minimax-m2.5": {
+          "name": "minimax-m2.5",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 130000,
+            "output": 30000
+          }
+        },
+        "glm-5-fp8": {
+          "name": "glm-5-fp8",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 200000,
+            "output": 45760
+          }
+        }
+      }
+    }
+  }
+}

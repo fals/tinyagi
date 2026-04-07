@@ -17,6 +17,12 @@ dist/
 .env
 .env.*
 
+# Secrets
+sandbox/opencode.json
+*.key
+*.pem
+credentials.json
+
 # OS files
 .DS_Store
 Thumbs.db
