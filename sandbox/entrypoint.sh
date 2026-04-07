@@ -40,8 +40,8 @@ fi
 mkdir -p "$TINYAGI_HOME/agents/tinyagi"
 
 if [ -f "$TINYAGI_DIR/.config/opencode/opencode.json.template" ] && [ ! -f "$TINYAGI_DIR/.config/opencode/opencode.json" ]; then
-	if [ -n "$OPENCODE_API_KEY" ]; then
-		sed "s/YOUR_API_KEY_HERE/$OPENCODE_API_KEY/g" "$TINYAGI_DIR/.config/opencode/opencode.json.template" >"$TINYAGI_DIR/.config/opencode/opencode.json"
+	if [ -n "$OPEN_CODE_API_KEY" ]; then
+		sed "s/YOUR_API_KEY_HERE/$OPEN_CODE_API_KEY/g" "$TINYAGI_DIR/.config/opencode/opencode.json.template" >"$TINYAGI_DIR/.config/opencode/opencode.json"
 		echo "Generated opencode.json from template"
 	fi
 fi

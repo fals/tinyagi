@@ -42,7 +42,7 @@ RUN rm -f packages/*/tsbuildinfo tsconfig.tsbuildinfo && npx tsc --build --force
 RUN mkdir -p /home/agent/tinyagi-workspace/.tinyagi
 
 COPY --chown=agent:agent opencode.json.template /home/agent/.config/opencode/opencode.json.template
-RUN sed 's/YOUR_API_KEY_HERE/'${OPENCODE_API_KEY:-}/'g' /home/agent/.config/opencode/opencode.json.template > /home/agent/.config/opencode/opencode.json || true
+RUN sed 's/YOUR_API_KEY_HERE/'${OPEN_CODE_API_KEY:-}/'g' /home/agent/.config/opencode/opencode.json.template > /home/agent/.config/opencode/opencode.json || true
 
 RUN cat > /home/agent/tinyagi-workspace/settings.json << 'EOF'
 {
